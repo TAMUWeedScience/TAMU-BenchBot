@@ -2,7 +2,7 @@
 Everything related the PSA BenchBot at Texas A&amp;M University at College Station, TX
 
 #### Table of Contents
-[Sensor layout](#sensor-layout)
+[Ultrasonic Sensors](#ultrasonic-sensors)
 
 ---
 
