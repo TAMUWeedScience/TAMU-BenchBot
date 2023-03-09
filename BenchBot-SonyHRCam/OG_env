@@ -1,0 +1,30 @@
+# Length of the robot (between front and back sensors) measured in cm
+ROBOT_LENGTH = 53
+# width of the robot (distance between two front wheels) in cm
+ROBOT_WIDTH = 209
+# if you haven't changed your pi's name the default username is 'pi'
+PI_USERNAME = 'pi'
+# if you haven't changed your pi's password, the default should be 'raspberry'
+PI_PASSWORD = 'raspberry'
+PI_HOST = None
+PI_PORT = None
+
+HOME_TO_END_SENSOR_DISTANCE = 1110
+# Distance between rows in mm
+DISTANCE_TRAVELED = 400
+# if BB moving backwards change the motors order to [3,2]
+WHEEL_MOTORS = '2,3'
+# number of ultrasonic sensors on the robot
+NUMBER_OF_SENSORS = 2
+# the trigger pins for sensors
+TRIGGER_PINS = '18,17'
+# the echo pins for sensors
+ECHO_PINS = '23,4'
+# reverse to move backwards or forwards
+DIRECTIONS = 'negative,positive'
+# total distance between proximity sensors around camera plate
+HOME_TO_END_SENSOR_DISTANCE = 1000
+# Setup type (RPi or Laptop)
+SETUP_TYPE = 'RPi'
+HOST_TYPE = 'RPi'
+OAK = 'no'
