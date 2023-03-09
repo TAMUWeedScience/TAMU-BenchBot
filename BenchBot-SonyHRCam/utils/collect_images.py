@@ -39,10 +39,21 @@ class CollectImages:
                 "How many rows do you want the BBot to move? You must provide a single whole number (e.g. 45)."
             ))
 
-        # Final and temp (for renaming and checking) image save directories
-        self.final_batch_dir = Path(f"{self.state_id}_{date.today()}","SONY")
-        self.final_batch_dir.mkdir(exist_ok=True, parents=True)
+        # Temp (for renaming and checking) image save directories for checking and logging
+        path2tempdir = "./"
+        self.temp_batch_dir = Path(f"{path2tempdir}/{self.state_id}_{date.today()}","SONY")
+        self.temp_batch_dir.mkdir(exist_ok=True, parents=True)
 
+        # Final image save directory
+        path2usb = "./"
+        if Path(path2usb).exists():
+            self.final_batch_dir = Path(f"{path2usb}/{self.state_id}_{date.today()}","SONY")
+            log.info(f"Final save locations found. Creating directory at {self.final_batch_dir}")
+            self.final_batch_dir.mkdir(exist_ok=True, parents=True)
+        else:
+            log.error("Final save location not found. Check path. Exiting(1).")
+            exit(1)
+        
         # Camera axis
         self.camera_motor = 1
         self.camera_home_speed = 55
@@ -255,8 +266,8 @@ class CollectImages:
         second trigger fails to save RAW again. Logs error if RAW or both 
         are missing. Logs warning if only JPG is missing.
         """
-        jpg = Path(self.final_batch_dir, self.temp_fstem + ".JPG").exists()
-        raw = Path(self.final_batch_dir, self.temp_fstem + ".ARW").exists()
+        jpg = Path(self.temp_batch_dir, self.temp_fstem + ".JPG").exists()
+        raw = Path(self.temp_batch_dir, self.temp_fstem + ".ARW").exists()
 
         if jpg and raw:
             log.info(f"JPG and Raw images exists for {self.temp_fstem}")
