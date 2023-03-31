@@ -45,7 +45,7 @@ class CollectImages:
         self.temp_batch_dir.mkdir(exist_ok=True, parents=True)
 
         # Final image save directory
-        path2usb = "./"
+        path2usb = "/media/pi/USB DISK"
         if Path(path2usb).exists():
             self.final_batch_dir = Path(f"{path2usb}/{self.state_id}_{date.today()}","SONY")
             log.info(f"Final save locations found. Creating directory at {self.final_batch_dir}")
@@ -301,7 +301,7 @@ class CollectImages:
 
     def file_rename(self, file_stem):
         time.sleep(1)
-        for file_name in os.listdir("."):
+        for file_name in os.listdir("/media/pi/USB DISK"):
             if file_name.startswith('DSC'):
                 if file_name.endswith('.JPG'):
                     new_name = f"{file_stem}.JPG"
