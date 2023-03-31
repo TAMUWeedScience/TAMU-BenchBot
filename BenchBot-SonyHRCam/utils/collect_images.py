@@ -301,7 +301,7 @@ class CollectImages:
 
     def file_rename(self, file_stem):
         time.sleep(1)
-        for file_name in os.listdir("/media/pi/USB DISK"):
+        for file_name in os.listdir("."):
             if file_name.startswith('DSC'):
                 if file_name.endswith('.JPG'):
                     new_name = f"{file_stem}.JPG"
